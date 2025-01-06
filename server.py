@@ -20,7 +20,12 @@ def form_page():
 
 @app.post('/create-account')
 def create_account():
-   return 'Successfully created account!'
+   first_name = request.form.get('first_name')
+   last_name = request.form.get('last_name')
+
+   # create an account...
+
+   return render_template('account-created.html', first_name=first_name)
 
 if __name__ == '__main__':
    app.run(port=8000, debug=True)
